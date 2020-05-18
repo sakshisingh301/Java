@@ -1,0 +1,30 @@
+
+
+public class Main
+{
+    public int minimumdistance(int [] a,int x,int y)
+    {
+        int i;
+        int j;
+        int min_distance=1;
+        for(i=0;i<a.length;i++)
+        {
+            for(j=i+1;j<a.length;j++)
+            {
+                if(a[i]==x && a[j]==y||a[i]==y&&a[j]==x&&Math.abs(i-j)<min_distance)
+              min_distance=Math.abs(i-j);
+              
+              
+            }
+        }
+        return min_distance;
+    }
+	public static void main(String[] args) {
+	int [] a={3, 5, 4, 2, 6, 5, 6, 6, 5, 4, 8, 3};
+	int x=3;
+	int y=6;
+	Main obj=new Main();
+	System.out.println(obj.minimumdistance(a,x,y));
+	
+	}
+}

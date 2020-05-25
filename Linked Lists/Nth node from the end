@@ -1,0 +1,65 @@
+
+import java.util.*;
+public class Main
+{
+    Node head;
+    static class Node{
+        int data;
+        Node next;
+        Node(int d)
+        {
+            data=d;
+            next=null;
+        }
+    }
+   int getNthFromLast(Node head, int n)
+    {
+    	int count=0;
+    	Node n2=head;
+    	while(n2!=null)
+    	{
+    	    count++;
+    	    n2=n2.next;
+    	}
+    	if(n>count)
+    	return -1;
+    	int size=count;
+    	int get=count+1;
+    	Node n1=head;
+    	for(int i=size;i>=n;i--)
+    	{
+    	  get--;
+    	  if(get==n)
+    	  return n1.data;
+    	  n1=n1.next;
+    	}
+    	return n1.data;
+    }
+        
+        
+    void printList()
+    {
+        Node n=head;
+        while(n!=null)
+        {
+            System.out.println(n.data);
+            n=n.next;
+        }
+    }
+	public static void main(String[] args) {
+		Main obj=new Main();
+		obj.head=new Node(23);
+		Node second=new Node(89);
+		Node third=new Node(50);
+		Node fourth=new Node(30);
+		Node Six=new Node(72);
+		obj.head.next=second;
+		second.next=third;
+		third.next=fourth;
+		fourth.next=Six;
+		//obj.printList();
+System.out.println(obj.getNthFromLast(obj.head,2));
+	    
+		
+	}
+}

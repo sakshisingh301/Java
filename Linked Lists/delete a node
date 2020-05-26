@@ -1,0 +1,62 @@
+
+import java.util.*;
+public class Main
+{
+    Node head;
+    static class Node{
+        int data;
+        Node next;
+        Node(int d)
+        {
+            data=d;
+            next=null;
+        }
+    }
+   Node removeduplicate(Node head,int x)
+   {
+        Node n=head;
+    Node prev=n.next;
+    while(n!=null && prev!=null&&prev.next!=null)
+    {
+        if(prev.data==x)
+        n.next=prev.next;
+         n=n.next;
+    prev=prev.next;
+    }
+   
+   n.next=null;
+   
+    
+    
+    return head;
+      
+   }
+        
+        
+    void printList(Node head)
+    {
+        Node n=head;
+        while(n!=null)
+        {
+            System.out.println(n.data);
+            n=n.next;
+        }
+    }
+	public static void main(String[] args) {
+		Main obj=new Main();
+		obj.head=new Node(1);
+		Node second=new Node(6);
+		Node third=new Node(3);
+		Node fourth=new Node(9);
+	//	Node Six=new Node(12);
+		obj.head.next=second;
+		second.next=third;
+		third.next=fourth;
+	//	fourth.next=Six;
+
+        System.out.println(obj.removeduplicate(obj.head,6));
+        
+        obj.printList(obj.head);
+		
+	}
+}

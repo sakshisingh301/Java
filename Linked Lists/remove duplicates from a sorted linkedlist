@@ -1,0 +1,64 @@
+
+import java.util.*;
+public class Main
+{
+    Node head;
+    static class Node{
+        int data;
+        Node next;
+        Node(int d)
+        {
+            data=d;
+            next=null;
+        }
+    }
+   void removeduplicate(Node head)
+   {
+       Node tempi=head;
+       Node tempj=tempi.next;
+       
+       while(tempi!=null && tempj!=null)
+       {
+           if(tempi.data==tempj.data)
+           {
+                tempi.next=tempj.next;
+           }
+           else
+           {
+                tempi=tempi.next;
+           
+           }
+           tempj = tempj.next;
+           
+       }
+      
+   }
+        
+        
+    void printList(Node head)
+    {
+        Node n=head;
+        while(n!=null)
+        {
+            System.out.println(n.data);
+            n=n.next;
+        }
+    }
+	public static void main(String[] args) {
+		Main obj=new Main();
+		obj.head=new Node(20);
+		Node second=new Node(13);
+		Node third=new Node(13);
+		Node fourth=new Node(11);
+		Node Six=new Node(11);
+		obj.head.next=second;
+		second.next=third;
+		third.next=fourth;
+		fourth.next=Six;
+
+        obj.removeduplicate(obj.head);
+        
+        obj.printList(obj.head);
+		
+	}
+}

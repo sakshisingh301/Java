@@ -1,0 +1,97 @@
+
+import java.util.*;
+public class Main
+{
+    static class Node 
+    {
+        int data;
+        Node right;
+        Node left;
+        Node(int data)
+        {
+            this.data=data;
+            left=right=null;
+        }
+    }
+    void push(Node root,int data)
+    {
+        if(data<root.data)
+        {
+            if(root.left!=null)
+            {
+            push(root.left,data);
+            }
+            else
+            {
+            root.left=new Node(data);
+            }
+            
+        }
+        else if(data>root.data)
+        {
+            
+            if(root.right!=null)
+            {
+            push(root.right,data);
+            }
+            
+        
+        else
+        {
+            root.right=new Node(data);
+        }
+        }
+    }
+    
+    Node insert(Node root, int key)
+    {
+        if(root==null)
+        {
+        root=new Node(key);
+        return root;
+        }
+          if(key<root.data)
+         {
+             if(root.left==null)
+             {
+             root.left=new Node(key);
+             return root;
+             }
+              
+             insert(root.left,key);
+             
+         }
+          if(key>root.data)
+         {
+            if(root.right==null)
+            {
+             root.right=new Node(key);
+             return root;
+            } 
+             insert(root.right,key);
+         }
+        return root;
+    }
+    void print (Node root)
+    {
+        if(root==null)
+        return ;
+        print(root.left);
+        System.out.println(root.data);
+        print(root.right);
+    }
+	public static void main(String[] args) {
+		Main obj=new Main();
+        Node root=new Node(55);
+		obj.push(root,13);
+		obj.push(root,15);
+		obj.push(root,45);
+		obj.push(root,90);
+		obj.push(root,48);
+		obj.push(root,65);
+		obj.push(root,100);
+		obj.insert(root,60);
+		obj.print(root);
+		
+	}
+}

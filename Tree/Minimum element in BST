@@ -1,0 +1,19 @@
+functional code:
+
+class Tree
+{
+    int minValue(Node node)
+    {
+        if(node==null)
+        return 0;
+        int min=node.data;
+        Node current=node;
+        while(current!=null)
+        {
+            if(current.data<min)
+            min=current.data;
+            current=current.left;
+        }
+        return min;
+    }
+}

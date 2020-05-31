@@ -1,0 +1,38 @@
+class Intersect
+{
+	int intersectPoint(Node headA, Node headB)
+	{
+	    
+	    if(headA == null || headB == null)
+	    {
+	        return 0;
+	    }
+	    
+	    
+	    Node p_a = headA;
+	    Node p_b = headB;
+	    
+	    
+	    while(p_a != p_b)
+	    {
+	        if(p_a == null)
+	        {
+	            p_a = headB;
+	        }
+	        else
+	        {
+	            p_a = p_a.next;
+	        }
+	        
+	        if(p_b == null)
+	        {
+	            p_b = headA;
+	        }
+	        else
+	        {
+	            p_b = p_b.next;
+	        }
+	    }
+	    
+	    return p_a.data;
+      }

@@ -1,0 +1,136 @@
+
+
+public class Main
+{
+    
+    static class Node
+    {
+       int data;
+       Node right;
+       Node left;
+       Node(int data)
+       {
+           this.data=data;
+           left=right=null;
+       }
+    }
+    public void push(Node root,int data)
+    {
+        if(data<root.data)
+        {
+            if(root.left!=null)
+            {
+            push(root.left,data);
+            }
+            else
+            {
+            root.left=new Node(data);
+            }
+            
+        }
+        else if(data>root.data)
+        {
+            
+            if(root.right!=null)
+            {
+            push(root.right,data);
+            }
+            
+        
+        else
+        {
+            root.right=new Node(data);
+        }
+        }
+    }
+    public Node minvalue(Node root)
+    {
+        if(root == null) return null;
+      
+        Node current=root;
+        
+        while(current.left!=null)
+        {
+            current=current.left;
+        }
+        return current;
+    }
+    public Node delete(Node root,int key)
+    {
+        if(root==null)return null;
+        
+        if(key<root.data)
+        {
+        root.left=delete(root.left,key);
+        }
+        else if(key>root.data)
+        {
+        root.right=delete(root.right,key);
+        }
+        
+        if(key == root.data)
+        {
+            
+            if(root.left==null&&root.right==null)
+            {
+                 root = null;
+            }
+            else if(root.left==null)
+            {
+                return root.right;
+            }
+            else if(root.right==null)
+            {
+                return root.left;
+            }
+            else if(root.left != null && root.right != null)
+            {
+                Node temp = minvalue(root.right);
+                root.data = temp.data;
+                root.right = delete(root.right , temp.data);
+            }
+        }
+        
+        return root;
+        }
+        
+        void deleteKey(Node root , int key)
+        {
+            root = delete(root , key);
+        }
+        
+    public void print(Node root)
+    {
+        if(root==null)
+        return;
+        print(root.left);
+        System.out.println(root.data + " ");
+        print(root.right);
+    }
+    
+    
+    
+	public static void main(String[] args) {
+	    Main obj=new Main();
+	    
+	    Node root=new Node(12);
+	    obj.push(root,5);
+	    obj.push(root,15);
+	    obj.push(root,3);
+	    obj.push(root,9);
+	    obj.push(root,13);
+	    obj.push(root,20);
+	    obj.push(root,1);
+	    obj.push(root,10);
+	    obj.push(root,21);
+	    
+	    obj.deleteKey(root , 5);
+	    obj.deleteKey(root , 1);
+	    obj.deleteKey(root , 9);
+	    obj.print(root);
+	    
+	    
+	   
+		
+	}
+}

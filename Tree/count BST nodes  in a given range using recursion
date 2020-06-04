@@ -1,0 +1,62 @@
+
+import java.util.*;
+public class Main
+{
+    
+    static class Node
+    {
+        int data;
+        Node right;
+        Node left;
+        Node(int data)
+        {
+            this.data=data;
+            left=right=null;
+            
+        }
+    }
+    public int countNodes(Node root,int h,int l)
+    {
+        if(root==null)
+        return 0;
+      if(root.data>=l&&root.data<=h)
+      {
+      return 1+countNodes(root.left,h,l)+countNodes(root.right,h,l);
+      }
+      if(root.data<l)
+      return countNodes(root.right,h,l);
+      if(root.data>h)
+      return countNodes(root.left,h,l);
+      return 0;
+    }
+      
+    public void print(Node root)
+    {
+        if(root==null)
+        {
+            return;
+        }
+        
+        
+        
+        print(root.left);
+        System.out.println(root.data);
+        print(root.right);
+        
+    }
+	public static void main(String[] args) {
+	Main obj=new Main();
+	Node root=new Node(10);
+	root.left=new Node(5);
+	root.right=new Node(50);
+	root.left.left=new Node(1);
+//	root.left.right=new Node(5);
+	root.right.left=new Node(40);
+	root.right.right=new Node(100);
+	int h=45;
+	int l=5;
+System.out.println(obj.countNodes(root,h,l));
+//	obj.print(root);
+	
+	}
+}

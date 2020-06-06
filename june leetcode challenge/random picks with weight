@@ -1,0 +1,42 @@
+
+class Solution {
+    int [] a;
+    Random random;
+    public Solution(int[] w) {
+        random = new Random();
+        int sum=0;
+         a=new int[w.length];
+        for(int i=0;i<w.length;i++)
+        {
+            sum=sum+w[i];
+            a[i]=sum;
+        }   
+        
+    }
+    public int binarysearch(int[] a,int start,int end,int randomnum)
+    {
+        
+        while(start<=end)
+        {
+           int mid= start+end/2;
+            if(mid==randomnum)
+                return mid;
+            if(mid>randomnum)
+               return binarysearch(a,mid+1,a.length-1,randomnum);
+            if(mid<randomnum)
+                return binarysearch(a,0,mid-1,randomnum);
+            
+                
+        }
+        return start;
+       
+        
+    }
+    
+    public int pickIndex() {
+       
+        int randomnum=random.nextInt(a[a.length-1]+1);
+         return binarysearch(a,0,a.length-1,randomnum);
+       
+    }
+}

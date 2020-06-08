@@ -1,0 +1,55 @@
+
+public class Main
+{ 
+    Node head;
+    Node end;
+    class Node 
+    {
+        int data;
+        Node next;
+        Node(int data)
+        {
+            this.data=data;
+            Node next=null;
+            
+        }
+        
+        
+    }
+    public void push(int new_data)
+    {
+        Node new_node=new Node(new_data);
+        
+        if(head==null)
+        {
+            head=new_node;
+            end=new_node;
+        }
+        else{
+             end.next=new_node;
+        end=new_node;
+        }
+        new_node.next=null;
+    }
+    public void print(Node head)
+    {
+        Node n=head;
+        while(n!=null)
+        {
+           System.out.println(n.data);
+           n=n.next;
+            
+        }
+    }
+	public static void main(String[] args) {
+		Main obj=new Main();
+		obj.push(1);
+		obj.push(2);
+		obj.push(3);
+		obj.push(4);
+		obj.push(5);
+		obj.push(6);
+		obj.print(obj.head);
+		
+	}
+}

@@ -1,0 +1,17 @@
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        ListNode fast_ptr = head;
+        ListNode slow_ptr = head;
+        
+        
+        while(fast_ptr != null && fast_ptr.next != null)
+        {
+            fast_ptr = fast_ptr.next.next;
+            slow_ptr = slow_ptr.next;
+            System.out.println(fast_ptr.val + " " + slow_ptr.val);
+            if(fast_ptr == slow_ptr)return true;
+        }
+        
+        return false;
+    }
+}

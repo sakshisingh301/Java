@@ -1,0 +1,28 @@
+class Loop
+{
+    int count(Node slow)
+    {
+        Node n=slow;
+        int count1=1;
+        while(n.next != slow)
+        {
+          count1++;
+          n=n.next;
+        }
+        return count1;
+    }
+    int countNodesinLoop(Node head)
+    {
+	    Node slow=head;
+	    Node fast=head;
+	    
+	    while(fast!=null&& slow!=null && fast.next!=null)
+	    {
+	        
+	        fast=fast.next.next;
+	        slow=slow.next;
+	        if(fast==slow)
+	        return count(slow);
+	    }
+	    return 0;
+    }

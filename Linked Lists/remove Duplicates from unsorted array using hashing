@@ -1,3 +1,5 @@
+0(n) solution 
+
 
 import java.util.*;
 public class Main
@@ -68,4 +70,42 @@ public class Main
 		obj.print(obj.head);
 		
 	}
+}
+or (o(n2))
+
+
+
+class GfG
+{
+    // Function to remove duplicates from the given linked list
+    public Node removeDuplicates(Node head) 
+    {
+        Node n=head;
+        while(n!=null )
+        {
+            Node current=n;
+            while(current.next!=null)
+            {
+            if(n.data==current.next.data)
+            {
+            
+            n.next=current.next.next;
+                
+            }
+            
+            else {
+            
+            current=current.next;
+                
+            }
+            
+             
+            }
+           n=n.next;
+            
+        }
+      return head;  
+    }
+    
+    
 }

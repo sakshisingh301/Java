@@ -1,0 +1,77 @@
+is not working properly 
+
+
+
+
+public class Main
+{
+    
+    public int partition(int [] a,int lb,int ub)
+    {
+  
+        int start =lb;
+        int end=ub;
+        int pivot=a[start];
+        while(start<end)
+        {
+            while(a[start]<pivot )
+            {
+                start++;
+                if(start>end) {
+                break;}
+                
+                
+            }            
+            
+            while(a[end] >pivot)
+            {
+            
+                end--;
+                if(start<end)
+                {
+                 break;   
+                }
+                
+            }
+            
+            int temp=a[start];
+            a[start]=a[end];
+            a[end]=temp;
+        }
+        if(start>end)
+        {
+        
+        int temp=a[lb];
+        a[lb]=a[end];
+        a[end]=temp;
+        
+        }
+        return end;
+    } 
+    public void QuickSort(int []a,int lb,int ub)
+    {
+        if(lb<ub)
+        {
+           int loc=partition(a,lb,ub);
+           QuickSort(a,lb,loc-1);
+           QuickSort(a,loc+1,ub);
+        }
+    }
+     static void printArray(int a[]) 
+    { 
+        int n = a.length; 
+        for (int i=0; i<n; ++i) 
+            System.out.print(a[i]+" "); 
+        System.out.println(); 
+    } 
+    
+	public static void main(String[] args) {
+	     Main obj=new Main();
+	    int[] a={7,6,10,5,9,2,1,15,7};
+	    int n=a.length;
+	   
+	    obj.QuickSort(a,0,n-1);
+	    printArray(a);
+		
+	}
+}

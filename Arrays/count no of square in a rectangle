@@ -1,0 +1,19 @@
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+			Scanner s=new Scanner(System.in);
+		long n=s.nextLong();
+		long m=s.nextLong();
+		if(m>n)
+        {
+            long temp=n;
+            n=m;
+            m=temp;
+        }
+        long result= m * (m + 1) * (2 * m + 1) /  
+        6 + (n - m) * m * (m + 1) / 2;
+    System.out.println(result );
+	}
+}

@@ -1,0 +1,67 @@
+
+
+
+
+public class Main
+{
+    public void matrix1(int R,int C,int [][]a)
+    {
+
+        int [] row=new int[R];
+        int []column=new int[C];
+        for(int i=0;i<R;i++)
+        {
+            row[i]=0;
+        }
+         for(int i=0;i<C;i++)
+        {
+            column[i]=0;
+        }
+        for(int i=0;i<R;i++)
+        {
+            for(int j=0;j<C;j++)
+            {
+                if(a[i][j]==1)
+                {
+                    row[i]=1;
+                    column[j]=1;
+                }
+            }
+        }
+       for(int i=0;i<R;i++)
+        {
+            for(int j=0;j<C;j++)
+            {
+                if(row[i]==1||column[j]==1)
+                {
+                    a[i][j]=1;
+                }
+            }
+        } 
+        
+    }
+    public void printmatrix( int R,int C,int [][]a)
+    {
+        
+        for(int i=0;i<R;i++)
+        {
+            for(int j=0;j<C;j++)
+            {
+                System.out.println(a[i][j]);
+            }
+        }
+    }
+    
+	public static void main(String[] args) {
+		
+        int a[ ][ ] = { {1, 0, 0}, 
+                          {0, 0, 1}, 
+                          {0, 0, 0}}; 
+        int R=3;
+        int C=3;
+        Main obj=new Main();
+        obj.matrix1(R,C,a);
+        obj.printmatrix(R,C,a);
+        
+	}
+}

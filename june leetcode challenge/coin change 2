@@ -1,0 +1,17 @@
+class Solution {
+    public int change(int amount, int[] coins) {
+        return count(coins,0,amount);
+        
+    }
+    
+    public int count(int[] coins,int index,int amount)
+    {
+        if(amount==0)
+            return 1;
+        if(amount<0)
+            return 0;
+        if(amount>0&&index==coins.length)
+            return 0;
+        return count(coins,index,amount-coins[index])+count(coins,index+1,amount);
+    }
+}

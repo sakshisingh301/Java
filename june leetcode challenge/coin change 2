@@ -1,17 +1,40 @@
-class Solution {
-    public int change(int amount, int[] coins) {
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+public class Main
+{
+    
+    public static int change(int amount, int[] coins) {
         return count(coins,0,amount);
         
     }
     
-    public int count(int[] coins,int index,int amount)
+    public static int count(int[] coins,int index,int amount)
     {
         if(amount==0)
+        {
             return 1;
+        }
         if(amount<0)
+        {
             return 0;
+        }
         if(amount>0&&index==coins.length)
+        {
             return 0;
+        }
         return count(coins,index,amount-coins[index])+count(coins,index+1,amount);
     }
+
+	public static void main(String[] args) {
+	    int [] coins={3,5,7,8,9,10,11};
+	    int amount =500;
+	  System.out.println( change(amount,coins)); 
+	
+	}
 }

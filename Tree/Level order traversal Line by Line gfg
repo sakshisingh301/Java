@@ -1,0 +1,29 @@
+class Level_Order_Traverse
+{
+    static void levelOrder(Node node) 
+    {
+        if(node==null)
+        return;
+      Queue<Node> q=new LinkedList<Node>();
+      q.add(node);
+      Node curr;
+      while(!q.isEmpty())
+      {
+          int level=q.size();
+          for(int i=0;i<level;i++)
+          {
+              curr=q.remove();
+              System.out.print(curr.data+" ");
+              if(curr.left!=null)
+              {
+              q.add(curr.left);
+              }
+              if(curr.right!=null)
+              {
+              q.add(curr.right);
+              }
+          }
+         System.out.print("$"+" ");
+      }
+    }
+}

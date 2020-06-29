@@ -1,0 +1,31 @@
+Input:
+2
+1 3 2
+10 20 30 40 60
+
+Output:
+3 2 1
+40 60 20 30 10
+
+
+class Tree
+{
+	public void reversePrint(Node node) 
+        {
+          Queue<Node> queue = new LinkedList<Node>();
+       Stack<Node> st = new Stack<Node>();
+queue.add(node);
+while (!queue.isEmpty()) {
+Node p = queue.remove();
+st.push(p);
+if (p.right != null) {
+queue.add(p.right);
+}
+if (p.left!= null)
+queue.add(p.left);
+}
+while(!st.isEmpty()){
+System.out.print(st.pop().data+" ");
+}
+        }
+}  

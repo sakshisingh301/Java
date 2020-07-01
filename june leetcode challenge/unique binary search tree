@@ -1,0 +1,19 @@
+CATOLOG NO :
+
+
+class Solution {
+    public int numTrees(int n) {
+            int total = 0;
+        if(n == 0 || n == 1)
+        {
+            return 1;
+        }
+        for(int i = 1 ; i <= n ; i++)
+        {
+            total += numTrees(i-1) * numTrees(n-i);
+        }
+        
+    return total;
+        
+    }
+}

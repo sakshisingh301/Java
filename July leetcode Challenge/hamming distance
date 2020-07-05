@@ -1,0 +1,44 @@
+convert the number x and y to binary and store it in a two array named numx and numy then take an XOR of two arrays numx and numy and store it in another array and 
+finally count the no of 1 present .
+
+
+class Solution {
+    public int hammingDistance(int x, int y) {
+       	 int [] numx=new int [32];
+	 int i=0;
+        while(x>0)
+        {
+        numx[i]=x%2;
+            x=x/2;
+            i++;
+        }
+          int [] numy=new int [32];
+          int j=0;
+        while(y>0)
+        {
+        numy[j]=y%2;
+            y=y/2;
+            j++;
+        }
+       Collections.reverse(Arrays.asList(numx));
+        Collections.reverse(Arrays.asList(numy));
+       
+       int[] array_3 = new int[numx.length];
+for(int h=0;h<array_3.length;h++)
+{
+    array_3[h]=numx[h]^numy[h];
+}
+
+    
+        int countbit=0;
+      for(int a:array_3)
+      {
+          if(a==1)
+          {
+           countbit++;   
+          }
+              
+      }
+        return countbit;
+    }
+}

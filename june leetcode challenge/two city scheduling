@@ -1,23 +1,37 @@
+Calculate the cost going to city A only and sum it up and keep it in an arraylist.
+calculate the profit going to city B instead of A.
+sort the profit 
+take the half element from the profit arraylist and sum it up.
+Finally calculate the difference between cost going to city A arraylist and profit arraylist
+
+
 class Solution {
     public int twoCitySchedCost(int[][] costs) {
-        int sum = 0;
-        ArrayList<Integer> profit = new ArrayList<Integer>();
+     ArrayList<Integer> a=new ArrayList<>();
+        ArrayList<Integer> b=new ArrayList<>();
         
-        for(int [] x : costs)
+    int costA=0;
+        
+        for(int i=0;i<costs.length;i++)
         {
-            sum += x[0];
-            profit.add(x[1] - x[0]);
+            b.add(costs[i][0]);
+        }
+        for(int i=0;i<b.size();i++)
+        {
+            costA=costA+b.get(i);
+        }
+        for(int i=0;i<costs.length;i++)
+        {
+            a.add(costs[i][1]-costs[i][0]);
+        }
+        Collections.sort(a);
+        int sum=0;
+        for(int i=0;i<a.size()/2;i++)
+        {
+             sum=sum+a.get(i);
         }
         
-        Collections.sort(profit);
-        
-        for(int i = 0 ; i < profit.size()/2 ; i++)
-        {
-            sum += profit.get(i);
-            System.out.println(sum);
-        }
-        
-        
-        return sum;
+        int result=costA-Math.abs(sum);
+        return result;
     }
 }

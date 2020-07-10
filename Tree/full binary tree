@@ -1,0 +1,31 @@
+
+
+class GfG
+{
+    // Return True if the given Binary Tree is a Full Binary Tree. Else return False
+	boolean isFullTree(Node node)
+    {
+      boolean status=false;
+      Queue<Node> q=new LinkedList<>();
+      q.add(node);
+      while(!q.isEmpty())
+      {
+          node=q.poll();
+          if(node.left!=null &&node.right!=null)
+          {
+            q.add(node.left);
+          q.add(node.right);
+          status =true;
+          }
+          if(node.left==null &&node.right==null)
+          {
+          status=true;
+          }
+          if(node.left!=null && node.right==null ||node.left==null&& node.right!=null)
+          {
+        status=false;
+        break;
+          }
+      }
+      return status;
+  

@@ -1,0 +1,41 @@
+code which is not working for 32 bit but working on 4 bits
+
+
+public class Solution {
+    // you need treat n as an unsigned value
+    public int reverseBits (int n) {
+		
+		int [] array=new int[32]; 
+        int i=0;
+        while(n>0)
+        {
+            array[i]=n%2;
+            n=n/2;
+            i++;
+        }
+        int [] array0=new int [32];
+        for(int z=0;z<32;i++)
+        {
+            array0[z]=1;
+        }
+        int array1[]=new int [32];
+        for(int j=0;j<array1.length;j++)
+        {
+            array1[j]=array[j]^array0[j];
+        }
+       Collections.reverse(Arrays.asList(array1));
+        int k=0;
+        double sum=0;
+        
+      for(int s=array1.length-1;s>=0;s--)
+      {
+       sum=sum+array1[s]*Math.pow(2,k);
+       k++;
+      }
+        
+     return (int)sum;
+	}
+}
+
+Code which is working on 32 bit :
+

@@ -1,0 +1,29 @@
+
+the idea is to do level order traversal and check if the node is not having any left or right child 
+
+
+class GfG
+{
+    public int SumofLeafNodes(Node root)
+    {
+       if(root==null)
+       return 0;
+       if(root!=null && root.left==null && root.right==null) //leaf nodes
+       return 1;
+       int sum=0;
+       Queue<Node> q=new LinkedList<>();
+       q.add(root);
+       while(!q.isEmpty())
+       {
+         Node p=q.remove();
+         if(p.left==null && p.right==null)
+         sum=sum+p.data;
+         if(p.left!=null)
+         q.add(p.left);
+          if(p.right!=null)
+         q.add(p.right);
+         
+       }
+       return sum;
+    }
+}

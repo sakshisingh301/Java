@@ -1,0 +1,17 @@
+
+
+
+class GfG{
+    public int rightLeafSum(Node root)
+    {
+      if(root==null)
+      return 0;
+      if(root!=null &&root.left==null &&root.right==null)
+      return 0;
+     
+     else if(root.right!=null &&root.right.left==null &&root.right.right==null )
+     return (root.right.data+ rightLeafSum(root.left));
+     else
+     return rightLeafSum(root.left)+rightLeafSum(root.right);
+   }
+}

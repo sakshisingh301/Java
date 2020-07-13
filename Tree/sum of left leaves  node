@@ -1,0 +1,31 @@
+the idea is to use level order traversal and checking if it is leaf node and it is part of left child .
+
+
+class Solution{
+
+    public int leftLeavesSum(Node root) 
+    { 
+ 
+    if(root==null)
+    return 0;
+    if(root!=null && root.left==null && root.right==null)
+    return 0;
+    int result=0;
+   Queue<Node> q=new LinkedList<>();
+   q.add(root);
+   while(!q.isEmpty())
+   {
+       Node p=q.remove();
+       if(p.left!=null &&p.left.left==null &&p.left.right==null)
+       result=result+p.left.data;
+       if(p.left!=null)
+       q.add(p.left);
+        if(p.right!=null)
+       q.add(p.right);
+       
+   }
+     return result;   
+    } 
+
+}
+

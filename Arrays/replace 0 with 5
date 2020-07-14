@@ -1,0 +1,21 @@
+class GfG {
+    int convertfive(int num) {
+        int count = 1,num1=0,rem,res;
+        while(num != 0)
+        {
+            res=num/10;
+            rem=num%10; 
+            if(rem==0) 
+            {
+            num1=num1+count*5; 
+            }
+
+            else num1 = num1 + rem*count; 
+            count = count*10; 
+            num=num/10;
+        }
+        return (num1);
+     
+    }
+    
+}

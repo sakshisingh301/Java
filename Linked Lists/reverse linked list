@@ -1,0 +1,29 @@
+
+
+
+
+class ReverseLL
+{
+    // This function should reverse linked list and return
+    // head of the modified linked list.
+    Node reverseList(Node head)
+    {
+        if(head==null)
+        return null;
+        if(head.next==null)
+        return head;
+        Node p=head;
+        Node prev=null;
+        Node temp=head;
+        while(p!=null )
+        {
+           temp=p.next; //storing the next node address in temp for next iteration
+            p.next=prev;
+            prev=p;
+            p=temp;
+            
+        }
+        head=prev;
+        return head;
+    }
+}

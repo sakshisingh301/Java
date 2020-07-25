@@ -1,0 +1,24 @@
+class Solution {
+    // Function to pairwise swap elements of a linked list.
+    // It should returns head of the modified list
+    public Node pairwiseSwap(Node head)
+    { 
+       Node p=head;
+       
+       if(head==null)
+            return null;
+            if(head!=null && head.next==null)
+            return head;
+       while( p!=null &&p.next!=null)
+       {
+           
+           
+           int temp=p.data;
+           p.data=p.next.data;
+           p.next.data=temp;
+           p=p.next.next;
+
+       }
+       return head;
+    }
+}

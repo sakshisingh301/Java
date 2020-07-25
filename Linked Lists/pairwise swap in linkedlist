@@ -1,3 +1,6 @@
+swapping data:
+
+
 class Solution {
     // Function to pairwise swap elements of a linked list.
     // It should returns head of the modified list
@@ -20,5 +23,33 @@ class Solution {
 
        }
        return head;
+    }
+}
+leetcode solution (swapping node)
+
+class Solution {
+    public ListNode swapPairs(ListNode head) {
+         if(head==null)
+        return null;
+        if(head!=null && head.next==null)
+        return head;
+        ListNode p=head;
+        ListNode new_head=null;
+        new_head=p.next;
+        while(true)
+        {
+            ListNode q=p.next;
+            ListNode temp=q.next;
+            q.next=p;
+            if(temp==null ||temp.next==null)
+            {
+                p.next=temp;
+                break;
+            }
+            p.next=temp.next;
+            p=temp;
+        }
+        return new_head;
+        
     }
 }

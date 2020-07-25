@@ -1,0 +1,175 @@
+
+
+import java.util.*;
+public class Main
+{
+    Node head;
+    Node end;
+    static class Node
+    {
+        int data;
+        Node next;
+        
+        Node(int d)
+        {
+            data=d;
+            next =null;
+            
+        }
+    }
+  static void segregate(Node head)
+    {
+        Node n=head;
+        Node zerostart=null;
+        Node zeroend=null;
+        Node onestart=null;
+        Node oneend=null;
+        Node twostart=null;
+        Node twoend=null;
+        
+        while(n != null)
+        {
+            if(n.data==0)
+            {
+                if(zerostart==null)
+                {
+                    zerostart=n;
+                    zeroend=n;
+                }
+                else
+                {
+                    zeroend.next=n;
+                    zeroend = n;
+                    //zeroend=zeroend.nex;
+                }
+            }
+             else if(n.data==1)
+            {
+                if(onestart==null)
+                {
+                    onestart=n;
+                    oneend=n;
+                }
+                else
+                {
+                    oneend.next=n;
+                    oneend = n;
+                    //oneend=oneend.next;
+                }
+            }
+           else
+            {
+                if(twostart==null)
+                {
+                    twostart=n;
+                    twoend=n;
+                }
+                else
+                {
+                    twoend.next=n;
+                    twoend = n;
+                    //twoend=twoend.next;
+                }
+            }
+            n=n.next;
+            
+        }
+        //System.out.println(zerostart.data + " " + zeroend.data + " " + onestart.data + " " + oneend.data + " " + twostart.data + " " + twoend.data);
+        zeroend.next=onestart;
+            oneend.next=twostart;
+            twoend.next=null;
+        
+        
+        while(zerostart != null)
+        {
+            System.out.print(zerostart.data + " ");
+            if(zerostart.next != null)
+            {
+                System.out.print("->");
+            }
+            zerostart = zerostart.next;
+        }
+    }
+    
+        
+        
+        ANOTHER SOLUTION:
+        
+        
+        class LinkedList
+{
+    static Node segregate(Node head)
+    {
+        Node n = head;
+        
+        int count0 = 0;
+        int count1 = 0;
+        int count2 = 0;
+        while(n != null)
+        {
+            if(n.data == 0)count0++;
+            if(n.data == 1)count1++;
+            if(n.data == 2)count2++;
+            
+            n = n.next;
+        }
+       
+        Node temp = head;
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        
+        while(i != count0)
+        {
+            temp.data = 0;
+            temp = temp.next;
+            i++;
+        }
+        while(j != count1)
+        {
+            temp.data = 1;
+            temp = temp.next;
+            j++;
+        }
+        while(k != count2)
+        {
+            temp.data = 2;
+            temp = temp.next;
+            k++;
+        }
+        
+        return head;
+    }
+}
+        
+   
+    void print()
+    {
+        Node n=head;
+        while(n!=null)
+        {
+            System.out.println(n.data);
+            n=n.next;
+        }
+    }
+	public static void main(String[] args) {
+	Main obj=new Main();
+	obj.head=new Node(1);
+    Node second=new Node(1);
+    Node third=new Node(0);
+    Node fourth=new Node(1);
+    Node fifth=new Node(2);
+    
+    obj.head.next=second;
+    second.next=third;
+    third.next=fourth;
+    fourth.next=fifth;
+    
+    obj.end=fifth;
+    
+   obj.segregate(obj.head);
+   
+    
+	}
+}
+

@@ -1,0 +1,25 @@
+
+
+class MyStack {
+
+    // Note that top is by default null
+    // in Java
+    StackNode top;
+
+    void push(int a) {
+        StackNode new_node=new StackNode(a);
+        
+        new_node.next=top;
+        top=new_node;
+        // Add your code here
+    }
+    int pop() {
+        
+       if(top==null)
+       return -1;
+       int res=top.data;
+       top=top.next;
+       return res;
+       
+    }
+}

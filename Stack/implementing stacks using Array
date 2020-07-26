@@ -1,0 +1,74 @@
+int [] array={1,2,3,4,5};
+int n=array.length;
+int [] stack=new int[n];
+int top=-1; //stack is empty
+
+public void push(int a)
+{
+if(top=n-1)
+{
+System.out.println("element cannot be inserted");
+}
+else
+{
+top++;
+stack[top]=a;
+}
+}
+public int pop()
+{
+int item;
+if(top==-1)
+{
+System.out.println("pop is not possible");
+}
+else
+{
+item=stack[top];
+top--;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

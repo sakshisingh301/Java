@@ -28,6 +28,11 @@ item=stack[top];
 top--;
 }
 }
+public int peek()
+{
+int item=stack[top];
+}
+
 
 
 

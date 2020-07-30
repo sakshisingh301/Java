@@ -1,0 +1,23 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+          s = s.replaceAll("[^a-zA-Z0-9]", "");
+         String Str = s.replaceAll("\\s", "");
+        String s1=Str.toLowerCase();
+        int start=0;
+        int end=s1.length()-1;
+        boolean status=false;
+        while(start<end)
+        {
+            if(s1.charAt(start)!=s1.charAt(end))
+            {
+            
+                return false;
+            }
+                start++;
+            end--;
+        }
+        
+        return true;
+        
+    }
+}

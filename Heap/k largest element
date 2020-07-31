@@ -27,3 +27,35 @@ public class Main
 	}
 	}
 }
+gfg solution:
+
+
+class Solution
+{
+    public static ArrayList<Integer> kLargest(int arr[], int n, int k)
+    {
+        ArrayList<Integer> list=new ArrayList<>();
+        PriorityQueue<Integer> min_heap = new PriorityQueue<Integer>(k);
+        int size=arr.length;
+    if(k>size ) 
+	{
+	    return null;
+	}
+	
+	for(int i=0;i<size;i++)
+	{
+	    min_heap.offer(arr[i]);
+	    if(min_heap.size()>k)
+	    {
+	        min_heap.poll();
+	    }
+	}
+	while(min_heap.size()>0)
+	{
+	list.add(min_heap.peek());
+	min_heap.poll();
+	}
+	Collections.reverse(list);
+	return list;
+    }
+}

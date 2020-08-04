@@ -1,0 +1,19 @@
+
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	Scanner s=new Scanner(System.in);
+	System.out.println("enter 1st no: ");
+	String s1=s.next();
+	System.out.println("enter 2nd no: ");
+	String s2=s.next();
+	int b1=Integer.parseInt(s1,2);
+	int b2=Integer.parseInt(s2,2);
+	int b3=b1+b2;
+	System.out.println(Integer.toBinaryString(b3));
+	
+	}
+}

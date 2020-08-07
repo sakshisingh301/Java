@@ -1,0 +1,18 @@
+
+class Solution {
+    public List<Integer> findDuplicates(int[] nums) {
+        ArrayList<Integer> list=new ArrayList<>();
+    HashSet<Integer> set=new HashSet<>();
+    for(int x:nums)
+    {
+        if(!set.contains(x))
+        set.add(x);
+        else
+        list.add(x);
+        
+    }
+    return list;
+       
+      
+    }
+}

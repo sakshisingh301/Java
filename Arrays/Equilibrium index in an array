@@ -1,0 +1,32 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+// 
+
+public class Main
+{
+	public static void main(String[] args) {
+		int [] a={-7, 1, 5, 2, -4, 3, 0};
+		int [] temp=new int[a.length];
+		temp[0]=a[0];
+		for(int i=1;i<a.length;i++)
+		{
+		    temp[i]=a[i]+temp[i-1];
+		}
+		for(int i=1;i<a.length-1;i++)
+		{
+		   int left_sum=temp[i]-a[i];
+		   
+		   int right_sum=temp[temp.length-1]-temp[i];
+		   
+		   if(left_sum==right_sum)
+		   {
+		       System.out.println("equilibrian point : "+i);
+		   }
+		}
+	}
+}

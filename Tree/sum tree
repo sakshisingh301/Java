@@ -1,0 +1,32 @@
+return true if sum of left subtree and sum of right subtree is equal to root else
+ return false;
+ 
+ 
+ class Tree
+{
+    int sum=0;
+    
+	boolean isSumTree(Node node)
+	{
+	    int sum=0;
+	    int result=2*node.data;
+	        Queue<Node> queue=new LinkedList<>();
+	        queue.add(node);
+	        while(!queue.isEmpty())
+	        {
+	            Node p=queue.poll();
+	         sum=sum+ p.data;
+	         if(p.left!=null)
+	         queue.add(p.left);
+	         if(p.right!=null)
+	         queue.add(p.right);
+	            
+	            
+	        }
+	        if(sum==result)
+	        {
+	            return true;
+	        }
+	        return false;
+	}
+}

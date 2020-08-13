@@ -1,0 +1,48 @@
+time complexity:nlog n
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	int [] a={1,3,4,5};
+	int [] b={2,6,7,9};
+	int n1=a.length;
+	int n2=b.length;
+	int i=0;
+	int j=0;
+	int k=0;
+	int [] temp=new int[n1+n2];
+	PriorityQueue<Integer> min_heap = new PriorityQueue<Integer>(2);
+	
+	while(i<n1 && j<n2)
+	{
+	    min_heap.offer(a[i]);
+	    min_heap.offer(b[j]);
+	    
+	    if(min_heap.size()>2)
+	    {
+	        temp[k]=min_heap.poll();
+	        k++;
+	        
+	    }
+	    i++;
+	    j++;
+	    
+	 }
+	 while(min_heap.size()>0)
+	 {
+	     temp[k]=min_heap.poll();
+	     k++;
+	 }
+
+	
+
+
+	    
+	for(int x: temp)
+	{
+	System.out.println(x);
+	}
+	
+	}
+}

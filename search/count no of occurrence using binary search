@@ -1,0 +1,65 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+public class Main
+{
+	public static void main(String[] args) {
+		int [] arr = {1, 1, 2, 2, 2, 2, 3};
+
+        int target = 1;
+
+        int left = 0;
+        int right = arr.length-1;
+        int count = 0;
+        boolean flag=true;
+
+        while(left <= right)
+        {
+            int mid = left+(right-left)/2;
+
+            if(arr[mid] == target)
+            {
+                flag=false;
+                count++;
+
+                
+                int left1 = mid-1;
+                int right1 = mid+1;
+
+                while(left1 >= 0 && arr[left1] == target)
+                {
+                    count++;
+                    left1--;
+                }
+                while(right1 < arr.length && arr[right1] == target)
+                {
+                    count++;
+                    right1++;
+                }
+                break;
+            }
+
+            else if(arr[mid] > target)
+            {
+                right = mid-1;
+            }
+            else
+            {
+                left = mid+1;
+            }
+            
+        }
+        if(flag==true)
+        {
+            count=-1;
+        }
+
+        System.out.println(count);
+        
+	}
+}

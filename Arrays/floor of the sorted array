@@ -1,0 +1,33 @@
+time complexity=n
+
+
+public class Main
+{
+    public int sortedArray(int [] a,int x)
+    {
+        if(a[0]>x)
+        return -1;
+        if(x>a[a.length-1])
+        return a[a.length-1];
+        
+        for(int i=0;i<a.length;i++)
+        {
+        if(x<a[i])
+        return a[i-1];
+        }
+        return -1;
+    }
+  public static void main (String[]args)
+  {
+    int [] a={1, 2, 8, 10, 10, 12, 19};
+    int x=0;
+    Main obj=new Main();
+    System.out.println(obj.sortedArray(a,x));
+    
+    
+   
+
+    
+  }
+}
+

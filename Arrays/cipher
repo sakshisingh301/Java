@@ -1,0 +1,49 @@
+
+import java.util.Random;
+
+public class Main
+{
+
+    public static void main(String[] args)
+    {
+        String encrypted = "ABCD";
+        StringBuilder sb = new StringBuilder();
+        int k = 2;
+
+        for(char c : encrypted.toCharArray())
+        {
+            if((c - k) >= 65)
+            {
+                sb.append((char)(c - k));
+            }
+            else
+            {
+                sb.append((char)(c + 25 - (k-1)));
+            }
+        }
+
+        System.out.println(sb.toString());
+
+
+        /*
+        char temp = ' ';
+
+        for(char c : encrypted.toCharArray())
+        {
+            if((int)(c-k) > 65)
+            {
+                for (char i = c; i >= c - k; i--)
+                {
+                    temp = i;
+                }
+            }
+            else
+            {
+               temp = (char)(c + 'Z' - 'A' + 1);
+            }
+            sb.append(temp);
+        }
+        System.out.println(sb.toString()); //TYPE RETURN HERE OKAY ?*/
+    }
+
+}

@@ -1,0 +1,72 @@
+
+import java.util.*;
+public class Main
+{
+    static class Node 
+    {
+        int data;
+        Node left;
+        Node right;
+        Node(int data)
+        {
+            this.data=data;
+            right=null;
+            left=null;
+        }
+    }
+    
+    public int level(Node root, int target)
+    {
+        Queue <Node> q=new LinkedList<>();
+        q.add(root);
+        int level=0;
+        
+        
+        while(!q.isEmpty())
+        {
+            int size=q.size();
+            level=level+1;
+            for(int i=0;i<size;i++)
+            {
+            Node p=q.remove();
+            if(p.data==target)
+            
+            return level;
+            if(p.left!=null)
+            q.add(p.left);
+            if(p.right!=null)
+            q.add(p.right);
+            }
+            
+        }
+        
+        return -1;
+        }
+     void printTree(Node root)
+    {
+     if(root!=null)
+     {
+         System.out.print(root.data);
+         printTree(root.left);
+         printTree(root.right);
+         
+         
+     }
+        
+        
+    }
+    
+	public static void main(String[] args) {
+	    	Main obj=new Main();
+		Node root=new Node(1);
+		root.left=new Node(2);
+		root.right=new Node(3);
+		root.left.left=new Node(4);
+		root.left.right=new Node(5);
+		root.right.left=new Node(6);
+		root.right.right=new Node(7);
+	
+	//	obj.printTree(root);
+		System.out.println(obj.level(root, 8));
+	}
+}

@@ -1,0 +1,41 @@
+time complexity: o(length of S +length of T);
+space complexity:o(n+m)
+
+class Solution {
+    public boolean backspaceCompare(String S, String T) {
+        Stack<Character> s=new Stack<>();
+        Stack<Character> t=new Stack<>();
+        for(char c:S.toCharArray())
+        {
+           if(c!='#')
+           {
+            s.push(c);   
+           }
+               
+            else if(!s.isEmpty())
+            {
+             s.pop();   
+            }
+                
+        }
+        for(char c:T.toCharArray())
+        {
+           if(c!='#')
+           {
+             t.push(c);  
+           }
+               
+            else if(!t.isEmpty())
+            {
+             t.pop();   
+            }
+                
+        }
+        if(s.isEmpty() &&t.isEmpty()||s.equals(t))
+        {
+         return true;   
+        }
+        
+        return false;
+    }
+}

@@ -1,0 +1,27 @@
+time complexity;o(n);
+space complexity: o(1);
+
+
+t will move one point and h will move two point after representing array in form of graph, return the pointer where they meet each other
+
+class Solution {
+    public int findDuplicate(int[] nums) {
+        int t=nums[0];
+        int h=nums[0];
+        do
+        {
+         t=nums[t];
+        h=nums[nums[h]];  
+        }
+        while(t!=h);
+        
+        t=nums[0];
+        while(t!=h)
+        {
+            t=nums[t];
+            h=nums[h];
+        }
+        
+        return t;
+    }
+}

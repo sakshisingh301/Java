@@ -24,4 +24,26 @@ public class HelloWorld{
 	}
 }
 
+time complexity: 0(n+klogn);
+space complexity: 0(n)
 
+
+import java.util.*;
+public class HelloWorld{
+
+     public static void main(String []args){
+       int [] a ={8,5,1,3,9,11,3};
+       int k=2;
+	PriorityQueue<Integer> max_heap = new PriorityQueue<Integer>(Collections.reverseOrder());
+	for(int i=0;i<a.length;i++)
+	{
+	    max_heap.offer(a[i]);
+	}
+	while(k!=1)
+	{
+	  max_heap.poll();
+	  k--;
+	}
+	System.out.println(max_heap.peek());
+     }
+}

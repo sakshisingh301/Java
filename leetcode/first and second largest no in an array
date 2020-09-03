@@ -24,7 +24,7 @@ public class HelloWorld{
 	}
 }
 
-time complexity: 0(n+klogn);
+time complexity: 0(n+klogn); // n for making max heap then klogn for taking out k elements.
 space complexity: 0(n)
 
 

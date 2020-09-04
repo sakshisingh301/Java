@@ -1,0 +1,10 @@
+
+input      number from 1 to n:
+
+[3,0,1]    [0,1,2,3]
+take xor of both the element :
+
+3 will cancel 3
+0 will cancel 0
+1 will cancel 1
+2 will be remaining which is a missing no

@@ -1,0 +1,25 @@
+
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    StringBuilder sb=new StringBuilder();
+	String s="i.like.this.program.very.much";
+
+	String [] s1=s.split("[.]");
+	Stack<String> stack=new Stack<>();
+	for(String a:s1)
+	{
+	    stack.push(a);
+	}
+	//System.out.println(stack);
+	while(!stack.isEmpty())
+	{
+	  sb.append(stack.pop()); 
+	  sb.append(".");
+	}
+	System.out.println(sb.toString());
+	}
+}

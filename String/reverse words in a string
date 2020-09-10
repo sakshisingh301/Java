@@ -1,0 +1,23 @@
+
+
+class Solution {
+    public String reverseWords(String s) {
+        
+     StringBuilder sb=new StringBuilder();   	
+	String s2=s.replaceAll("\\s+", " ");
+	String [] s1=s2.split("\\s");
+	Stack<String> stack=new Stack<>();
+	for(String a:s1)
+	{
+	    stack.push(a);
+	}
+	
+	while(!stack.isEmpty())
+	{
+	  sb.append(stack.pop()); 
+	  sb.append(" ");
+	}
+	return sb.toString().trim();
+        
+    }
+}

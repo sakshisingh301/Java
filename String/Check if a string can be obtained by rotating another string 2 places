@@ -1,0 +1,28 @@
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    String s1="amazon";
+	    String s2="onamaz";
+	    String a=s1.substring(0,2);
+	    String b=s2.substring(s2.length()-2,s2.length());
+	    String c=s2.substring(0,2);
+	    String d=s1.substring(s1.length()-2,s1.length());
+	 
+	   if(a.equals(b) || c.equals(d))
+	    {
+	        System.out.println("yes");
+	    }
+	    else
+	    {
+	        System.out.println("no");
+	    }
+	}
+}

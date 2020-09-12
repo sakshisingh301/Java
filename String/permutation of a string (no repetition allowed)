@@ -1,0 +1,39 @@
+
+
+
+
+import java.util.*;
+public class Main
+{
+    public void generatePermutations(String s,int l,int r)
+    {
+        if(l==r)
+       {
+           System.out.println(s);
+       }
+       else{
+           
+        for(int i=l;i<=r;i++)
+        {
+            s=swap(s,l,i);
+            generatePermutations(s,l+1,r);
+            s=swap(s,l,i);
+        }
+       }
+    }
+    public String swap(String s,int i,int j)
+    {
+        char temp;
+        char[]a=s.toCharArray();
+        temp=a[i];
+        a[i]=a[j];
+        a[j]=temp;
+        return String.valueOf(a);
+    }
+	public static void main(String[] args) {
+	String s="abc";
+	Main obj=new Main();
+	obj.generatePermutations(s,0,s.length()-1);
+	
+	}
+}

@@ -1,0 +1,27 @@
+time complexity:0(n)
+space complexity:0(n)
+
+
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		String s="geeks for geeks";
+		LinkedHashMap<Character,Integer> map=new LinkedHashMap<>();
+		StringBuilder sb=new StringBuilder();
+		for(char c:s.toCharArray())
+		{
+		    if(!map.containsKey(c))
+		    map.put(c,1);
+		    else
+		    map.put(c,map.get(c)+1);
+		}
+		for(char x:map.keySet())
+		{
+		    sb.append(x);
+		}
+		System.out.println(sb.toString());
+	}
+}

@@ -1,10 +1,4 @@
-/******************************************************************************
 
-                            Online Java Compiler.
-                Code, Compile, Run and Debug java program online.
-Write your code in this editor and press "Run" button to execute it.
-
-*******************************************************************************/
 import java.util.*;
 public class Main
 {
@@ -34,3 +28,42 @@ public class Main
 	System.out.println(right);
 	}
 }
+
+=====================================================================================================================================
+
+naive solution 
+time complexity:0(n2)
+space complexity:0(n)
+
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	int [] a={1,4,20,3,10,5};
+	int sum=33;
+	HashMap<Integer,Integer> map=new HashMap<>();
+	for(int i=0;i<a.length;i++)
+	{
+	    map.put(a[i],i);
+	}
+	for(int i=0;i<a.length;i++)
+	{
+	    for(int j=i+1;j<a.length;j++)
+	    {
+	        int diff=sum-(a[i]+a[j]);
+	        if(map.containsKey(diff)&& map.get(diff)!=i &&map.get(diff)!=j)
+	        {
+	            if(i<map.get(diff))
+	            {
+	        System.out.println("index1: "+i);
+	        System.out.println("index2: " +map.get(diff));
+	        break;
+	            }
+	        }
+	    }
+	}
+	}
+}
+

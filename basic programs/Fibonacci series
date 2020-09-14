@@ -25,3 +25,39 @@ public class Main
 	}
 	}
 }
+==============================================================================
+
+/******************************************************************************
+
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int [] temp=new int[10];
+		temp[0]=1;
+		temp[1]=1;
+		int a=1;
+		int b=1;
+		 int n=temp.length-1;
+		int i=2;
+		while(n>=2)
+		{
+		    int c=a+b;
+		    a=b;
+		    b=c;
+		    temp[i]=c;
+		    i++;
+		    n--;
+		}
+	/*	for(int x: temp)
+		{
+		    System.out.println(x);
+		}*/
+		System.out.println(temp[9]);
+	}
+}

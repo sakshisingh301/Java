@@ -1,0 +1,19 @@
+
+
+
+class Solution {
+    public int lengthOfLastWord(String s) {
+        if(s.trim().length()==0)
+            return 0;
+        String [] s1=s.split("\\s");
+        
+        Stack<String> stack=new Stack<>();
+        for(String a:s1)
+        {
+            stack.push(a);
+        }
+        String result=stack.pop();
+        
+        return result.length();
+    }
+}

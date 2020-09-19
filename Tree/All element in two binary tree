@@ -1,0 +1,93 @@
+inorder traversal of binary search tree give us a sorted array :
+
+  inorder traversal
+  merging of two sorted array 
+
+
+
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<Integer> getAllElements(TreeNode root1, TreeNode root2) {
+        ArrayList<Integer> list1=new ArrayList<>();
+        ArrayList<Integer> list2=new ArrayList<>();
+        ArrayList<Integer> list=new ArrayList<>();
+        Stack<TreeNode> s1=new Stack<>(); //inorder traversal
+        Stack<TreeNode> s2=new Stack<>();
+        TreeNode curr1=root1;
+        TreeNode curr2=root2;
+        while(s1.size()>0 || curr1!=null )
+        {
+            while(curr1!=null)
+            {
+                s1.push(curr1);
+                curr1=curr1.left;  
+            }
+            curr1=s1.peek();
+            list1.add(curr1.val);
+            s1.pop();
+            curr1=curr1.right;
+        }
+          while(s2.size()>0 || curr2!=null )
+        {
+            while(curr2!=null)
+            {
+                s2.push(curr2);
+                curr2=curr2.left;  
+            }
+            curr2=s2.peek();
+            list2.add(curr2.val);
+            s2.pop();
+            curr2=curr2.right;
+        }
+     
+        int l1=list1.size();
+        
+        int l2=list2.size();
+        int i=0;
+        int j=0;
+        
+        
+      // merging two sorted list 
+      
+      
+        while(i<l1 && j<l2)
+        {
+            if(list1.get(i)<list2.get(j))
+            {
+              list.add(list1.get(i));
+                i++;
+            }
+            else
+            {
+                list.add(list2.get(j));
+                j++;
+            }
+        }
+        while(i<l1)
+        {
+           list.add(list1.get(i));
+            i++;
+        }
+        while(j<l2)
+        {
+           list.add(list2.get(j));
+            j++;
+        }
+        
+       return  list;
+    }
+}

@@ -1,0 +1,50 @@
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int max=0;
+        int current=0;
+        int temp;
+        
+        
+        if(nums.length==1) // handling the edge case where length of array is one : [8] ,max_subarray=8      
+        {
+          temp=nums[0]; 
+            return temp;
+        }
+        
+        
+        int max_negative=-10000; /// handling the case where all the numbers are negative :[-1,-2] , max_subarray=-1
+        boolean status=true;
+        for(int i=0;i<nums.length;i++)
+        {
+         if(nums[i]>0)
+             status=false;
+        }
+        if(status==true)
+        {
+          for(int i=0;i<nums.length;i++)
+          {
+              if(nums[i]>max_negative)
+                  max_negative=nums[i];
+          }
+            return max_negative;
+        }
+        else
+        {
+            
+        for(int i=0;i<nums.length;i++)  //kadane algorthimn where number are both positive and negative
+        {
+            current=current+nums[i];
+            if(current<0)
+                current=0;
+            if(current> max)
+            {
+                max=current;
+            }
+        }
+            
+        }  
+        return max;
+    }
+}
+

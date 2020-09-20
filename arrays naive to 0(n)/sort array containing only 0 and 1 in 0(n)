@@ -15,7 +15,7 @@ public class Main
 		        left++;
 		       
 		    }
-		     while(a[right]==0 && left<right)
+		     while(a[right]==1 && left<right)
 		    {
 		        right--;
 		       

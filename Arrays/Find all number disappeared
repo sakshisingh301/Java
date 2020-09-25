@@ -1,0 +1,42 @@
+Input:
+[4,3,2,7,8,2,3,1]
+
+Output:
+[5,6]
+
+
+
+class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+       
+        ArrayList<Integer> list=new ArrayList<>();
+        
+        int []temp=new int[nums.length];
+        
+        
+        int sum=0;
+        for(int i=0;i<temp.length;i++)
+        {
+            sum=sum+1;
+            temp[i]=sum;
+        }  // temp={1,2,3,4,5,6,7,8};
+        
+        HashSet<Integer> set=new HashSet<>();
+        
+        for(int i=0;i<nums.length;i++)
+        {
+            set.add(nums[i]);
+        } // set={4,3,2,7,8,1}
+        
+        
+       for(int i=0;i<temp.length;i++)
+       {
+           if(!set.contains(temp[i]))
+           {
+               list.add(temp[i]); // 5,6
+           }
+       }
+       
+     return list;   
+    }
+}

@@ -1,0 +1,27 @@
+three steps:
+hypothesis(defining the main function)
+induction(main logic)
+base condition (smallest valid input )
+
+
+
+
+
+public class Main
+{
+    public static void printNum(int n)
+    {
+      if(n==1) // smallest valid input 
+      {
+        System.out.println(n);
+        return;
+      }
+      printNum(n-1);
+      System.out.println(n);
+    }
+	public static void main(String[] args) {
+	    int n=10;
+	    printNum(10);
+		
+	}
+}

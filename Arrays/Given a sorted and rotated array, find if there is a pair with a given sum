@@ -1,20 +1,65 @@
+input={1,2,3,4,5,6,7}
+x=8
+
+output=[[1,7],[2,6],[3,5]]
+
+input={1,2,3,4,5,6,7}
+x=80 // since sum is not present;
+
+output=[[-1]]
+
+
+
 
 import java.util.*;
 public class Main
 {
-    
+    public List<List<Integer>> pair(int [] a,int x)
+    {
+        boolean status=false;
+       int start=0;
+	int end=a.length-1;
+	List<List<Integer>> result = new ArrayList<List<Integer>>();
+		List<List<Integer>> empty = new ArrayList<List<Integer>>();
+
+	while(start<end)
+	{
+	    	ArrayList<Integer> list=new ArrayList<>();
+	    if(a[start]+a[end]==x)
+	    {
+	        status=true;
+	        list.add(a[start]);
+	        list.add(a[end]);
+	    start++;
+	    end--;
+	    }
+	    else if(a[start]+a[end]<x)
+	    {
+	        start++;
+	    }
+	    else
+	    {
+	        end--;
+	    }
+	    result.add(list);
+	} 
+	if(status==false)
+	{
+	   
+	   ArrayList<Integer> l1=new ArrayList<>();
+	   l1.add(-1);
+	    empty.add(l1);
+	    return empty;
+	}
+	return result;
+	
+    }
 	public static void main(String[] args) {
-		int [] a={1,2,3,4,5,6};
-		int sum=5;
-		boolean check=false;
-		for(int i=0;i<a.length;i++)
-		{
-		    for(int j=i+1;j<a.length;j++)
-		    {
-		        if(a[i]+a[j]==sum)
-		        check=true;
-		    }
-		}
-		System.out.println(check);
+	int [] a={1,2,3,4,5,6,7};
+	int x=8;
+	Main obj=new Main();
+	System.out.println(obj.pair(a,x));
+	
+	//System.out.println(result);
 	}
 }

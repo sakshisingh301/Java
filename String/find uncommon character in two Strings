@@ -1,0 +1,57 @@
+Input: str1 = “characters”, str2 = “alphabets”
+Output: b c l p r
+
+Input: str1 = “geeksforgeeks”, str2 = “geeksquiz”
+Output: f i o q r u z
+
+
+
+
+
+
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	String s1="characters";
+	String s2="alphabets";
+	
+	ArrayList<Character> list=new ArrayList<>();
+	HashSet<Character> set1=new HashSet<>();
+	for(char c1: s1.toCharArray())
+	{
+	    set1.add(c1);
+	}
+	
+	for(int i=0;i<s2.length();i++)
+	{
+	    if(!set1.contains(s2.charAt(i))&& !list.contains(s2.charAt(i)))
+	    {
+	      list.add(s2.charAt(i));  
+	    }
+	    
+	}
+	HashSet<Character> set2=new HashSet<>();
+	
+	for(char c2: s2.toCharArray())
+	{
+	    set2.add(c2);
+	}
+
+	
+	for(int i=0;i<s1.length();i++)
+	{
+	    if(!set2.contains(s1.charAt(i)) && !list.contains(s1.charAt(i)))
+	    {
+	      list.add(s1.charAt(i));  
+	    }
+	    
+	}
+	
+	
+	System.out.println(list);
+	
+	}
+}

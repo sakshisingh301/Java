@@ -1,0 +1,29 @@
+public class HelloWorld{
+
+	public static void main(String[] args) {
+	String s1="mightandmagic";
+	String s2="andmagicmigth";
+	
+	String s3=s1.concat(s1);
+	
+	boolean status=false;
+	
+	for(int i=0;i<s3.length();i++)
+	{
+	    for(int j=i+1;j<s3.length();j++)
+	    {
+	        String s4=s3.substring(i,j);
+	  
+	        if(s4.equals(s2))
+	        {
+	        status=true;
+	        break;
+	        }
+	    }
+	}
+	
+	System.out.println(status);
+	
+
+	}
+}

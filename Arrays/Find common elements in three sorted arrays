@@ -26,3 +26,56 @@ public class Main
        System.out.println(obj);
 	}
 }
+===============================================================================================================================================================
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int [] a= {1, 5, 10, 20, 40, 80};
+		int [] b={6, 7, 20, 80, 100};
+		int [] c={3, 4, 15, 20, 30, 70, 80, 120};
+		
+		 ArrayList<Integer> list=new ArrayList<>();
+		 
+		int a1=a.length;
+		int b1=b.length;
+		int c1=c.length;
+	
+		int i=0;
+		int j=0;
+		int k=0;
+
+      while (i < a1 && j < b1 && k < c1) 
+        { 
+             
+             if (a[i] == b[j] && b[j] == c[k]) 
+             {  
+            list.add(a[i]);
+             i++;
+             j++;
+             k++;
+             } 
+  
+            
+             else if (a[i] < b[j])
+             {
+                 i++; 
+  
+             }
+             else if (b[j] < c[k]) 
+             {
+                 j++; 
+             }
+            
+             else
+             {
+                 k++; 
+             }
+        } 
+    
+	
+	System.out.println(list);	
+	}
+}

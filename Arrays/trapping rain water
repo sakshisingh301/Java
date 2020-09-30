@@ -1,0 +1,50 @@
+ 
+ 
+ 
+ 
+
+class Solution {
+    public int trap(int[] height) {
+        if(height.length==0)
+            return 0;
+        
+       ArrayList<Integer> list1=new ArrayList<>();
+       ArrayList<Integer> list2=new ArrayList<>();
+         int max_L=height[0];
+        for(int i=0;i<height.length;i++)
+        {
+          if(height[i]>max_L)
+          {
+              max_L=height[i];
+          }
+           list1.add(max_L); 
+        }
+         int max_R=height[height.length-1];
+        for(int i=height.length-1;i>=0;i--)
+        {
+          if(height[i]>max_R)
+          {
+              max_R=height[i];
+          }
+           list2.add(max_R);
+            
+        }
+        Collections.reverse(list2);
+        
+        
+        int sum=0;
+        
+        for(int i=0;i<height.length;i++)
+        {
+            
+            int min=Math.min(list1.get(i),list2.get(i));
+         
+            int H=min-height[i];
+             sum=sum+H;
+            
+        }
+        
+    return sum;
+        
+    }
+}

@@ -1,0 +1,56 @@
+Input: arr[] = {1, 14, 5, 20, 4, 2, 54, 20, 87, 98, 3, 1, 32}  
+        lowVal = 14, highVal = 20
+Output: arr[] = {1, 5, 4, 2, 1, 3, 14, 20, 20, 98, 87, 32, 54}
+
+
+
+
+
+
+
+
+
+
+
+public class HelloWorld{
+
+     public static void main(String []args){
+       int [] a={1, 14, 5, 20, 4, 2, 54, 20, 87, 98, 3, 1, 
+       32};
+       int l=14;
+       int h=20;
+       
+       int start=0;
+       int end=a.length-1;
+       
+       for(int i=0;i<=end ;)
+       {
+           if(a[i]<l)
+           {
+               int temp=a[i];
+               a[i]=a[start];
+               a[start]=temp;
+               start++;
+               i++;
+           }
+           else if(a[i]>h)
+           {
+               int temp=a[i];
+               a[i]=a[end];
+               a[end]=temp;
+               end--;
+               
+           }
+           else
+           {
+            i++;   
+           }
+       }
+     for(int x:a)
+     {
+         System.out.println(x);
+     }
+       
+       
+     }
+}

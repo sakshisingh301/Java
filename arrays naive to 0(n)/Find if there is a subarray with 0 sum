@@ -1,0 +1,45 @@
+arr[] = {1, 4, -2, -2, 5, -4, 3}
+
+If we consider all prefix sums, we can
+notice that there is a subarray with 0
+sum when :
+1) Either a prefix sum repeats or
+2) Or prefix sum becomes 0.
+
+Prefix sums for above array are:
+1, 5, 3, 1, 6, 2, 5
+
+Since prefix sum 1 repeats, we have a subarray
+with 0 sum.
+
+
+
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int [] a={4, 2, -3, 1, 6};
+		HashSet<Integer> set=new HashSet<>();
+	
+		boolean status=false;
+		int sum=0;
+		for(int i=0;i<a.length;i++)
+		{
+		 sum=sum+a[i];
+		 if(!set.contains(sum)||sum==0)
+		 {
+		     set.add(sum);
+		 }
+		 else
+		 {
+		     status=true;
+		     break;
+		 }
+		 
+		}
+		
+		System.out.println(status);
+	}
+}

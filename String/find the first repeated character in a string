@@ -17,6 +17,42 @@ public class First {
                     System.out.println(temp);
                 }
             }
+============================================================================================================================================================
+
+
+import java.util.*;
+public class First {
+
+
+        public static void main(String[] args) {
+
+            String ch ="hello geeks";
+            char repeated=' ';
+
+            HashSet<Character> set=new HashSet<>();
+
+            for(char c:ch.toCharArray())
+            {
+                if(!set.contains(c))
+                {
+                    set.add(c);
+                }
+                else{
+                    repeated=c;
+                    break;
+                }
+            }
+            System.out.println(repeated);
+        }
+    }
+
+
+
+
+
+
+
+
 
 
 

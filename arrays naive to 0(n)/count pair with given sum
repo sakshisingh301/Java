@@ -1,0 +1,46 @@
+Input  :  arr[] = {1, 5, 7, -1}, 
+          sum = 6
+Output :  2
+Pairs with sum 6 are (1, 5) and (7, -1)
+
+Input  :  arr[] = {1, 5, 7, -1, 5}, 
+          sum = 6
+Output :  3
+Pairs with sum 6 are (1, 5), (7, -1) &
+                     (1, 5)         
+
+Input  :  arr[] = {1, 1, 1, 1}, 
+          sum = 2
+Output :  6
+There are 3! pairs with sum 2.
+
+Input  :  arr[] = {10, 12, 10, 15, -1, 7, 6, 
+                   5, 4, 2, 1, 1, 1}, 
+          sum = 11
+Output :  9
+
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+    int [] a={1, 5, 7, -1, 5};
+    int k=6;
+    HashSet<Integer> set=new HashSet<>();
+    
+    for(int x: a)
+    {
+        set.add(x);
+    }
+    int count=0;
+    for(int x: a)
+    {
+        if(set.contains(x-k))
+        {
+            count++;
+        }
+    }
+    System.out.println(count);
+	}
+}

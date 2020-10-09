@@ -1,0 +1,53 @@
+Input : str = "geeks", x = 'e'
+Output : 2
+Last index of 'e' in "geeks" is: 2 
+
+Input : str = "Hello world!", x = 'o'
+Output : 7
+Last index of 'o' is: 7
+
+
+
+
+import java.util.*;
+public class First {
+        public static void main(String[] args) {
+            String s="Hello world!";
+            Character x='o';
+            int temp=0;
+            int last=0;
+
+            for(int i=0;i<s.length();)
+            {
+                if(s.charAt(i)==x)
+                {
+                    temp=i;
+                    i++;
+                    if(temp>last)
+                    {
+                        last=temp;
+                    }
+                }
+                else{
+                    i++;
+                }
+            }
+
+            System.out.println(last);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

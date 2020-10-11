@@ -1,0 +1,28 @@
+class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+      
+        List<List<Integer>> result=new ArrayList<>();
+        boolean[] used=new boolean[nums.length];
+        dfs(nums,result,new ArrayList<>(),used);
+            return result;
+         
+    }
+    
+public void dfs(int []nums,List<List<Integer>>result,ArrayList<Integer> curr,boolean[] used)
+{
+    if(curr.size()==nums.length)
+    {
+    result.add(new ArrayList<>(curr));
+    }
+    
+    for(int i=0;i<nums.length;i++)
+    {
+       if(used[i]==true)continue;
+        curr.add(nums[i]);
+         used[i]=true;
+        dfs(nums,result,curr,used);
+        curr.remove(curr.size()-1);
+        used[i]=false;
+    }
+}
+}

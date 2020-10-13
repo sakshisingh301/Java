@@ -1,0 +1,49 @@
+
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	int [] a={1, 2, 3, 4};
+	ArrayList<Integer> list=new ArrayList<>();
+	int left=0;
+	int mid=0;
+	int right=0;
+    int j=0;
+    int index=0;
+    for(int i=1;i<a.length-1;i++)
+    {
+        while(j<i)
+        {
+            if(a[j]<a[i])
+            {
+               left=a[j];
+               mid=a[i];
+               index=i;
+                break;
+            }
+            j++;
+        }
+    }
+    if(left!=0 && mid!=0)
+    for(int k=index+1;k<a.length;k++)
+    {
+     if(a[k]>mid)
+     {
+         right=a[k];
+     }
+    }
+    list.add(left);
+    list.add(mid);
+    list.add(right);
+    if(left ==0 && right==0 && mid==0)
+    {
+        System.out.println("no triplet exist");
+    }
+    
+	 if(left !=0 && right!=0 )
+	 System.out.println(list);
+	}
+	
+}

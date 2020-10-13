@@ -1,62 +1,55 @@
 
-
-
-
 import java.util.*;
-
 public class Main
 {
 	public static void main(String[] args) {
-   int [] a = {2, 3, 7, 10, 12};
-     int [] b = {1, 5, 7, 8};
-     
-     int i=0;
-     int j=0;
-     int sum1=0;
-     int sum2=0;
-     int final_sum=0;
-     boolean status=false;
-    
-        
-         while(a[i]!=b[j] && i<a.length && j<b.length)
-         {
-             
-             sum1=sum1+a[i];
-             sum2=sum2+b[j];
-            
-             i++;
-             j++;
-             
-         }
-         
-         final_sum=Math.max(sum1,sum2);
-         
-         
-         int sum3=0;
-         int sum4=0;
-        int  final_sum1=0;
-       while(i<a.length && j<b.length )
-       {
-           sum3=sum3+a[i];
-           sum4=sum4+b[j];
-           i++;
-           j++;
-       }
-       
-       while(i<a.length)
-       {
-           sum3=sum3+a[i];
-           i++;
-       }
-        while(j<b.length)
-       {
-           sum4=sum4+a[i];
-           j++;
-       }
-       
-       final_sum1=Math.max(sum3,sum4);
-       
-     
-    System.out.println(final_sum+final_sum1);
+	int [] a={2, 3, 7, 10, 12};
+	int [] b={1, 5, 7, 8};
+	
+	int i=0;
+	int j=0;
+	int sum1=0;
+	int sum2=0;
+	int result=0;
+	
+	while(i<a.length && j<b.length)
+	{
+	    if(a[i]<b[j])
+	    {
+	        sum1=sum1+a[i];
+	        i++;
+	    }
+	    else if(a[i]>b[j])
+	    {
+	        sum2=sum2+b[j];
+	        j++;
+	    }
+	    else
+	    {
+	      result=result+Math.max(sum1,sum2);
+	      sum1=0;
+	      sum2=0;
+	      while(i<a.length && j<b.length && a[i]==b[j])
+	      {
+	          
+	          result=result+a[i];
+	          i++;
+	          j++;
+	      }
+	    }
+	}
+	
+	while(i<a.length)
+	{
+	    sum1=sum1+a[i];
+	    i++;
+	}
+	while(j<b.length)
+	{
+	    sum2=sum2+b[j];
+	    j++;
+	}
+	result=result+Math.max(sum1,sum2);
+	System.out.println(result);
 	}
 }

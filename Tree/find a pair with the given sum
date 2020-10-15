@@ -1,0 +1,64 @@
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public boolean findTarget(TreeNode root, int k) {
+      HashMap<Integer,Integer> set=new HashMap<>();
+        int j=0;
+        
+        ArrayList<Integer> list=new ArrayList<>();
+       
+       Stack<TreeNode> stack=new Stack<>();
+        TreeNode curr=root;
+        while(stack.size()>0||curr!=null )
+        {
+           while(curr!=null)
+           {
+               stack.push(curr);
+               curr=curr.left;    
+            }
+            curr=stack.peek();
+            set.put(curr.val,j);
+            j++;
+            list.add(curr.val);
+             stack.pop();
+            curr=curr.right;
+            
+        }
+         if(list.size()==1 && k>list.get(0))
+        {
+            return false;
+        }
+        
+        boolean status=false;
+        for(int i=0;i<list.size();)
+        {
+            System.out.println(k-list.get(i));
+            if(set.containsKey(k-list.get(i)) &&set.get(k-list.get(i))!=i  )
+            {
+                status=true;
+                break;
+            }
+            else
+            {
+                i++;
+            }
+        }
+     
+        return status;
+  
+        
+    }
+}

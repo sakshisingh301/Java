@@ -1,0 +1,35 @@
+
+Example 1:
+
+Input: J = "aA", S = "aAAbbbb"
+Output: 3
+
+Example 2:
+
+Input: J = "z", S = "ZZ"
+Output: 0
+
+
+
+
+class Solution {
+    public int numJewelsInStones(String J, String S) {
+        
+        HashSet<Character> set=new HashSet<>();
+        
+        for(char c:J.toCharArray())
+        {
+            set.add(c);   
+        }
+        
+        int count=0;
+        for(char c: S.toCharArray())
+        {
+          if(set.contains(c))
+          {
+              count++;
+          }
+        }
+        return count;
+    }
+}

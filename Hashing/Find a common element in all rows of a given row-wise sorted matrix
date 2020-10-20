@@ -1,0 +1,43 @@
+
+
+
+
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	int [] [] a={{1,2,3,4,5},{2,4,5,8,10},{3,5,7,9,11},{1,3,5,7,9}};
+	int R=a.length;
+	
+	ArrayList<Integer> list=new ArrayList<>();
+	
+	HashMap<Integer,Integer> set=new HashMap<>();
+	
+	for(int i=0;i<a.length;i++)
+	{
+	    for(int j=0;j<a[0].length;j++)
+	    {
+	        
+	        if(set.containsKey(a[i][j]))
+	        {
+	            set.put(a[i][j],set.get(a[i][j])+1);
+	        }
+	        else
+	        {
+	            set.put(a[i][j],1);
+	        }
+	    }
+	}
+	  for (Map.Entry<Integer,Integer> x : set.entrySet()) 
+	  {
+	      if(x.getValue()==R)
+	      {
+	        list.add(x.getKey());  
+	      }
+	  }
+	  
+	  System.out.println(list);
+	}
+}

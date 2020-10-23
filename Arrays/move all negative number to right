@@ -1,0 +1,53 @@
+
+
+
+
+input-1, -1, 3, 2, -7, -5, 11, 6 
+output-1  3  2  11  6  -1  -7  -5 
+
+
+
+
+
+
+
+
+
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	int [] a={1, -1, 3, 2, -7, -5, 11, 6 };
+	
+	int start=0;
+	int end=a.length-1;
+	
+	while(start<end)
+	{
+	    if(a[start]>0 && a[end]<0)
+	    {
+	        start++;
+	        end--;
+	    }
+	    else if(a[start]>0 &&a[end]>0)
+	    {
+	        while(a[start]>0)
+	        {
+	            start++;
+	        }
+	    }
+	    else if(a[start]<0 && a[end]>0)
+	    {
+	        int temp=a[start];
+	        a[start]=a[end];
+	        a[end]=temp;
+	        start++;
+	        end--;
+	    }
+	}
+	for(int x:a)
+	{
+	    System.out.println(x);
+	}
+	}
+}

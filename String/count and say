@@ -4,7 +4,7 @@
 class Solution {
     public String countAndSay(int n) {
         String s="1";
-        while(--n>0)
+        while(--n>0) //value of n is getting checked after the decrement
         {
             s=convert(s);
             

@@ -1,0 +1,69 @@
+Input  : str = "ABC"
+Output : 2
+We can make above string palindrome as "CBABC"
+by adding 'B' and 'C' at front.
+
+Input  : str = "AACECAAAA";
+Output : 2
+We can make above string palindrome as AAAACECAAAA
+by adding two A's at front of string.
+
+
+
+import java.util.*;
+public class Main
+{
+    public  boolean palindrome(String s)
+    {
+        boolean status=true;
+        int start=0;
+        int end=s.length()-1;
+        while(start<=end)
+        {
+            if(s.charAt(start)!=s.charAt(end))
+            {
+                status=false;
+                break;
+            }
+            else{
+                start++;
+                end--;
+            }
+            
+        }
+        return status;
+        
+    }
+    public int delete(String s)
+    {
+        
+        int count=0;
+    while(s.length()>0)
+    {
+     
+      if(palindrome(s))
+      {
+          break;
+      }
+      else
+      {
+        count++;
+        s=s.substring(0,s.length()-1);
+      }
+      
+    } 
+     return count; 
+    }
+	public static void main(String[] args) {
+	    String s="ABA";
+	    Main obj=new Main();
+	    obj.palindrome(s);
+	    System.out.println(obj.delete(s));
+	  
+	    
+	
+	}
+}
+
+
+
